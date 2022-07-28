@@ -10,7 +10,7 @@ type Post = {
     content:string
 }
 
-const index = () => {
+const Post = () => {
 
     const route = useRouter();
     const [loading, setLoading] = useState(true);
@@ -55,4 +55,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Post
