@@ -1,10 +1,18 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
 
-export const getServerSideProps: GetServerSideProps = async ({params}) => {
+export async function getStaticPaths() {
+    return {
+      paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
+      fallback: false, // can also be true or 'blocking'
+    }
+  }
+
+
+export const getStaticProps: GetStaticProps = async ({params}) => {
 
     let todo;
     if(params && params.id) {
@@ -40,10 +48,10 @@ const TodoById = (props:any) => {
   return (
   <div>
       <Head>
-            <title>Todo By Id Page CSR</title>
+            <title>User By Id Page CSR</title>
             <meta name="description" content="This is Post by Id Page" />
       </Head>
-      <h3>Todo by id</h3>
+      <h3>User by id</h3>
       <div>
         <button onClick={()=>{route.back()}}>Back</button>
       </div>

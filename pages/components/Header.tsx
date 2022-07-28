@@ -13,6 +13,10 @@ const Header = () => {
             <Link href="todos">
             <a>Todos</a>
             </Link>
+            {` / `}
+            <Link href="user">
+            <a>User</a>
+            </Link>
         </div>
     </div>
   )

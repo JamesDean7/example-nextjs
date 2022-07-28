@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import { User } from '../post';
 
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
     const todoFetch = await fetch('https://jsonplaceholder.typicode.com/users');
     const todoList = await todoFetch.json()
@@ -29,11 +29,11 @@ const Todos = (props:any) => {
   return (
     <>
         <Head>
-            <title>Todo Page SSR</title>
-            <meta name="description" content="This is TODO Page" />
+            <title>Users Page Static Generation</title>
+            <meta name="description" content="This is User Page" />
         </Head>
         <Header />
-        <h3>Todo</h3>
+        <h3>User</h3>
         <div>
             {
                 displayPost(props.todos)
