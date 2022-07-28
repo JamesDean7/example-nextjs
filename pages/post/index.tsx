@@ -45,6 +45,7 @@ const Post = () => {
             <title>Post Page CSR</title>
             <meta name="description" content="This is Post Page" />
         </Head>
+        <Header />
         <h3>Post</h3>
         <div>
             {
