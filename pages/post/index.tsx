@@ -29,8 +29,8 @@ const Post = () => {
     }
 
     const displayPost = (postList:Post[]) => {
-        return postList.map((post)=>{
-            return <div><Link href={`${route.pathname}/${post.id}`}><a>{post.title}</a></Link></div>
+        return postList.map((post, index)=>{
+            return <div key={index}><Link href={`${route.pathname}/${post.id}`}><a>{post.title}</a></Link></div>
         })
     }
 
