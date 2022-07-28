@@ -5,10 +5,10 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Header';
 
 
-type Post = {
+export type User = {
     id:number,
-    title:string,
-    content:string
+    name:string,
+    email:string
 }
 
 const Post = () => {
@@ -23,15 +23,15 @@ const Post = () => {
     console.log(route);
 
     const fetchPost = async () => {
-        const postFetch = await fetch('http://localhost:4000/post');
+        const postFetch = await fetch('https://jsonplaceholder.typicode.com/users');
         const postList = await postFetch.json()
         setPost([...postList])
         setLoading(false);
     }
 
-    const displayPost = (postList:Post[]) => {
+    const displayPost = (postList:User[]) => {
         return postList.map((post, index)=>{
-            return <div key={index}><Link href={`${route.pathname}/${post.id}`}><a>{post.title}</a></Link></div>
+            return <div key={index}><Link href={`${route.pathname}/${post.id}`}><a>{post.name}</a></Link></div>
         })
     }
 

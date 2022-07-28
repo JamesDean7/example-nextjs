@@ -14,7 +14,7 @@ const PostById = () => {
   },[])
 
   const fetchPost = async () => {
-      const postFetch = await fetch(`http://localhost:4000/post/${route.query.id}`);
+      const postFetch = await fetch(`https://jsonplaceholder.typicode.com/users/${route.query.id}`);
       const postList = await postFetch.json()
       setPost({...postList})
       setLoading(false);
@@ -22,8 +22,8 @@ const PostById = () => {
 
   const displayPost = (post:any) => {
     return <div>
-      <p>{post.title}</p>
-      <p>{post.content}</p>
+      <p>{post.name}</p>
+      <p>{post.email}</p>
     </div>
   }
 

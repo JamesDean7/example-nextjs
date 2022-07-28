@@ -3,16 +3,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react'
 import Header from '../components/Header';
+import { User } from '../post';
 
-type Todo = {
-    id:number,
-    title:string,
-    complted:boolean
-}
 
 export async function getServerSideProps() {
 
-    const todoFetch = await fetch('http://localhost:4000/todos');
+    const todoFetch = await fetch('https://jsonplaceholder.typicode.com/users');
     const todoList = await todoFetch.json()
     return {
       props: {todos:todoList}, // will be passed to the page component as props
@@ -27,9 +23,9 @@ const Todos = (props:any) => {
 
   const route = useRouter();
 
-  const displayPost = (todoList:Todo[]) => {
+  const displayPost = (todoList:User[]) => {
         return todoList.map((todo, index)=>{
-            return <div key={index}><Link href={`${route.pathname}/${todo.id}`}><a>{todo.title}</a></Link></div>
+            return <div key={index}><Link href={`${route.pathname}/${todo.id}`}><a>{todo.name}</a></Link></div>
         })
   }
 

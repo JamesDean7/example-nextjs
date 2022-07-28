@@ -8,7 +8,7 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
 
     let todo;
     if(params && params.id) {
-        const todoFetch = await fetch(`http://localhost:4000/todos/${params.id}`);
+        const todoFetch = await fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`);
         todo = await todoFetch.json()
     }else {
         todo = null;
@@ -29,8 +29,8 @@ const TodoById = (props:any) => {
 
   const displayPost = (todo:any) => {
     return <div>
-      <p>{todo.title}</p>
-      <p>{todo.completed}</p>
+      <p>{todo.name}</p>
+      <p>{todo.email}</p>
     </div>
   }
 
