@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react'
 export async function getStaticPaths() {
     return {
       paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
-      fallback: false, // can also be true or 'blocking'
+      fallback: false, 
     }
   }
 
@@ -18,6 +18,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
     if(params && params.id) {
         const todoFetch = await fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`);
         todo = await todoFetch.json()
+        
     }else {
         todo = null;
     }
@@ -28,7 +29,7 @@ export const getStaticProps: GetStaticProps = async ({params}) => {
 }
 
 
-const TodoById = (props:any) => {
+const UserById = (props:any) => {
 
   const route = useRouter();
   console.log(route);
@@ -43,7 +44,6 @@ const TodoById = (props:any) => {
   if(!props.todo) {
     return <div>Data Not found</div>
   }
-
 
   return (
   <div>
@@ -64,4 +64,4 @@ const TodoById = (props:any) => {
 )
 }
 
-export default TodoById
+export default UserById

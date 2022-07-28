@@ -8,15 +8,15 @@ import { User } from '../post';
 
 export async function getStaticProps() {
 
-    const todoFetch = await fetch('https://jsonplaceholder.typicode.com/users');
-    const todoList = await todoFetch.json()
+    const userFetch = await fetch('https://jsonplaceholder.typicode.com/users');
+    const userList = await userFetch.json()
     return {
-      props: {todos:todoList}, // will be passed to the page component as props
+      props: {user:userList}, // will be passed to the page component as props
     }
   }
 
 
-const Todos = (props:any) => {
+const User = (props:any) => {
 
   const route = useRouter();
 
@@ -36,11 +36,11 @@ const Todos = (props:any) => {
         <h3>User</h3>
         <div>
             {
-                displayPost(props.todos)
+                displayPost(props.user)
             }
         </div>
     </>
   )
 }
 
-export default Todos
+export default User
