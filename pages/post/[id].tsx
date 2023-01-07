@@ -38,7 +38,7 @@ const PostById = () => {
             <title>Post By Id Page CSR</title>
             <meta name="description" content="This is Post by Id Page" />
       </Head>
-      <h3>Post by id</h3>
+      <h3>Post by id : CSR</h3>
       <div>
         <button onClick={()=>{route.back()}}>Back</button>
       </div>
